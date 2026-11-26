@@ -3,11 +3,13 @@ resource "random_id" "id" {
 }
 
 resource "opentelekomcloud_kms_key_v1" "cloud_tracing_service_key" {
-  provider        = opentelekomcloud.top_level_project
-  key_alias       = "${var.bucket_name}-key-${random_id.id.hex}"
-  key_description = "${var.bucket_name} encryption key"
-  pending_days    = 7
-  is_enabled      = "true"
+  provider          = opentelekomcloud.top_level_project
+  key_alias         = "${var.bucket_name}-key-${random_id.id.hex}"
+  key_description   = "${var.bucket_name} encryption key"
+  pending_days      = 7
+  is_enabled        = "true"
+  rotation_enabled  = var.kms_key_rotation_interval != null
+  rotation_interval = var.kms_key_rotation_interval
 }
 
 resource "opentelekomcloud_obs_bucket" "cloud_tracing_service" {

@@ -69,6 +69,7 @@ No modules.
 | <a name="input_cts_expiration_days"></a> [cts\_expiration\_days](#input\_cts\_expiration\_days) | How long should the data be preserved within the OBS bucket (in days). Default: 180 | `number` | `180` | no |
 | <a name="input_enable_trace_analysis"></a> [enable\_trace\_analysis](#input\_enable\_trace\_analysis) | Enables/disable trace analysis (LTS) for the tracker. Default: true | `bool` | `true` | no |
 | <a name="input_file_prefix"></a> [file\_prefix](#input\_file\_prefix) | Object name prefix to store the traces in the OBS. Default: cts | `string` | `"cts"` | no |
+| <a name="input_kms_key_rotation_interval"></a> [kms\_key\_rotation\_interval](#input\_kms\_key\_rotation\_interval) | Rotation interval in days (30-365) for the KMS key created by this module. Setting a value enables automatic key rotation. null turns rotation off, also on a key where it was enabled outside of Terraform. (default: null) | `number` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Common tags to add to resources that support them. | `map(string)` | `null` | no |
 
 ## Outputs
